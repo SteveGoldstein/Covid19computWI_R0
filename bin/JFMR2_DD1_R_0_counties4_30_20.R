@@ -1,3 +1,4 @@
+## Initialize ------------------------------------
 # run instantaneous R0 calculations per county from data pulled through API by Steve Wangen
 #install.packages("epitools")
 #install.packages("Epi")
@@ -14,6 +15,7 @@ library(plyr)
 library(dplyr)
 library(data.table)
 
+##  
 #setwd("C:/Users/ddvd/Desktop/COVID19_SIR/DD_COVID_model_toolbox/Cori_Thompson_by_county")
 #setwd("/Users/ddvd/Mac-PC Shared Folder/UWM/COVID19_SIR/JFMR/Cori_Thompson_by_county")
 ######################################
@@ -27,10 +29,13 @@ library(data.table)
 #cv1dd<-read.csv("/Users/ddvd/Mac-PC Shared Folder/UWM/COVID19_SIR/JFMR/Cori_Thompson_by_county/wi_county_data_cases_deaths4_29_20.csv",na.strings=".")
 #cv1ddx<-read.csv("/Users/ddvd/Mac-PC Shared Folder/UWM/COVID19_SIR/JFMR/Cori_Thompson_by_county/wi_county_data_cases_deaths4_29_20.csv",na.strings=".")
 
+### Read and format data --------------------------------
 #directly read from API - on 4_30_20, the cases were mistaken by deaths, API was corrected by SW
-cv1dd<-read.csv("https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv")
+apiData <-read.csv("https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv")
 
+cv1dd = apiData[,grep("_cases", names(apiData), value=TRUE)]
 ################################
+grep("_cases", names(cv1dd), value=TRUE)
 cv1dd = cv1dd[,grep("_cases", names(cv1dd), value=TRUE)]
 cv1dd = t(cv1dd)
 
@@ -51,7 +56,7 @@ covid = data.frame(data)
 names(covid) = counties
 rownames(covid)<-as.Date(rownames(covid),"%m/%d/%y")
 
-
+##   aggregate data ---------------------
 
 #############################
 # aggregate cases by day
