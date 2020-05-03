@@ -1,0 +1,6 @@
+
+xlscat -s, -u output/DD1_R0_results4_29_20.xlsx 2> /dev/null |perl -F, -nale 'if ($.>1) {map{$_=sprintf "%0.3f", $_;} @F[2..$#F]} print join ",", @F'  > output/DD1_R0_results4_29_20.csv 
+
+
+cat output/DD1_R0_results4_29_20.csv |perl -F, -nale 'print join ",", @F[0..3,7]'  > output/DD1_R0_results4_29_20.1.csv
+
