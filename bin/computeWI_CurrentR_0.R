@@ -13,14 +13,30 @@ library(plyr)
 library(dplyr)
 library(data.table)
 
-pdf("R0.pdf")
+
+defaultArgs <- list (
+  plotFile = 'results/2020-05-04/R0.pdf',
+  outFile =  'results/2020-05-04/WI_RO.csv',
+  verbose = FALSE
+)
+
+args <- R.utils::commandArgs(trailingOnly = TRUE,
+                             asValues = TRUE ,
+                             defaults = defaultArgs)
+
+
+if (! is.null(args$plotFile)) {
+  pdf(args$plotFile)
+}
+
+
 ### Read and format data --------------------------------
 #directly read from API - on 4_30_20, the cases were mistaken by deaths, API was corrected by SW
 apiData <-read.csv("https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv")
-cv1dd = apiData[,grep("_cases", names(apiData), value=TRUE)]
+cv1dd <- apiData[,grep("_cases", names(apiData), value=TRUE)]
 
 ################################
-cv1dd = t(cv1dd)
+cv1dd <- t(cv1dd)
 counties <- c(cv1dd["Admin2_cases",])
 
 data <- cv1dd[tail(row.names(cv1dd),-10),]
@@ -59,7 +75,6 @@ for (ind in seq(length(counties))){
   # first case
   ini_date = first(na.omit( cv1dd[vars] ))$date
   ######################################################
-  ######Question: this omits ini_date;  is that right?
   cv2x<-cv1dd[which(cv1dd$date>ini_date & cv1dd$date<=last_date),] # data after school closure 
   cv2<-cv2x[vars]
   colnames(cv2) <- c("Date", "Count")
@@ -70,13 +85,14 @@ for (ind in seq(length(counties))){
   
   cv4<-cv3
   rownames(cv4) = seq(dim(cv4)[1])
-  
-  if (sum(cv4$I)==0) {
-    print(paste(ind,"There are no cases in", county))
-    results[ind,1] = county
-    results[ind,2] = "there are no cases"
-    results[ind,3] = "there are no cases"
-    results[ind,4] = "there are no cases"
+  numCases <- sum(cv4$I)
+  if (numCases == 0) {
+    results[ind,1] <- county
+    results[ind,2] <- NA
+    results[ind,3] <- NA
+    results[ind,4] <- NA
+    results[ind,5] <- numCases
+    results[ind,6] <- NA
     next
   }
   
@@ -96,63 +112,73 @@ for (ind in seq(length(counties))){
   i <- incidence(onset, last_date = last_date)
   ################################################################################
   ################################################################################
-  if ( length(as.vector(i$counts)) < 7){
-    print(paste(ind,"In", county, "there are not enough data to compute R_0"))
-    
-    results[ind,1] = county
-    results[ind,2] = "there are not enough data to compute R_0"
-    results[ind,3] = "there are not enough data to compute R_0"
-    results[ind,4] = "there are not enough data to compute R_0"
-    
-    next
-  }
+  numDaysWithCases <- length(as.vector(i$counts)) 
+  if ( numDaysWithCases < 7){
+      results[ind,1] <-  county
+      results[ind,2] <- NA
+      results[ind,3] <- NA
+      results[ind,4] <- NA
+      results[ind,5] <- numCases
+      results[ind,6] <- numDaysWithCases 
+      next
+      }
   
   #The function get_R is then used to estimate the most likely values of R:
   mu <- 7.5 # mean in days days
   sigma <- 3.4 # standard deviation in days
   
-  res <- get_R(i, si_mean = mu, si_sd = sigma)
-  #################################################################################
-  si <- res$si
-  #print(si)
+  if (args$verbose) {
+    res <- get_R(i, si_mean = mu, si_sd = sigma)
+    si <- res$si
+    print(si)
+  }
   ######################################
   
   ########################################################################
   # calculate the instantaneous R0 over time using the most reasonable uncertainty distributions for the serial interval:
-  res_before_during_after_closure <- estimate_R(as.vector(i$counts), 
-                                                method="parametric_si",
-                                                config = make_config(list(
-                                                  # t_start = t_start,
-                                                  #t_end = t_end,
-                                                  mean_si = 7.5, 
-                                                  std_si = 3.4))
-  )
-  
-  # plot R0 over time by county  
-  R0_plot <- 
-    plot(res_before_during_after_closure, "R") +
-    geom_hline(aes(yintercept = 1), color = "red", lty = 2) + 
-    ggtitle(county)
-  print(R0_plot)
+  res_before_during_after_closure <- 
+    estimate_R(
+      as.vector(i$counts), 
+      method="parametric_si",
+      config = make_config(list(
+        mean_si = mu, 
+        std_si = sigma)
+        )
+    )
+  if (!is.null(args$plotFile)) {
+    # plot R0 over time by county  
+    R0_plot <- 
+      plot(res_before_during_after_closure, "R") +
+      geom_hline(aes(yintercept = 1), color = "red", lty = 2) + 
+      ggtitle(county)
+    print(R0_plot)
+  }
   
   # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
   R_R = res_before_during_after_closure$R
   R_val = R_R$`Mean(R)`[dim(R_R)[1]]
   R_CIhi = R_R$`Quantile.0.975(R)`[dim(R_R)[1]]
   R_CIlo = R_R$`Quantile.0.025(R)`[dim(R_R)[1]]
-    
-  print(paste(ind,"The current R_0 in ",county," is: ", round(R_val, digits = 3),
+  
+  if (args$verbose) { 
+    print(paste(ind,"The current R_0 in ",county," is: ", round(R_val, digits = 3),
               "with 95% Credibility Interval (",round(R_CIlo, digits = 3),
-              ",",round(R_CIhi, digits = 3),")"))
+              ",",round(R_CIhi, digits = 3),")")
+          )
+  }
   
-  results[ind,1] = county
-  results[ind,2] = round(R_val, digits = 3)
-  results[ind,3] = round(R_CIlo, digits = 3)
-  results[ind,4] = round(R_CIhi, digits = 3)
-  
+  results[ind,1] <-  county
+  results[ind,2] <-  round(R_val, digits = 3)
+  results[ind,3] <-  round(R_CIlo, digits = 3)
+  results[ind,4] <-  round(R_CIhi, digits = 3)
+  results[ind,5] <-  numCases
+  results[ind,6] <-  numDaysWithCases
 }
-names(results) = c("County","R_0","Quantile.0.025","Quantile.0.975")
-results
+names(results) = c("County","R_0",
+                   "Quantile.0.025","Quantile.0.975",
+                   "NumCases","NumDaysWithCases"
+                   )
+write.csv(results, file = args$outFile,quote = FALSE,row.names = FALSE)
 
 warnings()
 dev.off()
