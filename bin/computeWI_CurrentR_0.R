@@ -1,7 +1,5 @@
 ## Initialize ------------------------------------
 # run instantaneous R0 calculations per county from data pulled through API by Steve Wangen
-#install.packages("epitools")
-#install.packages("Epi")
 
 library(incidence)
 library(earlyR)
@@ -139,10 +137,7 @@ for (ind in seq(length(counties))){
   
   # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
   R_R = res_before_during_after_closure$R
-  #mea R0:
   R_val = R_R$`Mean(R)`[dim(R_R)[1]]
-  #R_CIhi = rbind(c(R_R$`Quantile.0.975(R)`[dim(R_R)[1]]))
-  #R_CIlo = rbind(c(R_R$`Quantile.0.025(R)`[dim(R_R)[1]]))
   R_CIhi = R_R$`Quantile.0.975(R)`[dim(R_R)[1]]
   R_CIlo = R_R$`Quantile.0.025(R)`[dim(R_R)[1]]
     
