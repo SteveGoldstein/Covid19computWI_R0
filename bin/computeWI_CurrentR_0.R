@@ -24,33 +24,27 @@ args <- R.utils::commandArgs(trailingOnly = TRUE,
                              asValues = TRUE ,
                              defaults = defaultArgs)
 
-
 if (! is.null(args$plotFile)) {
   pdf(args$plotFile)
 }
 
-
 ### Read and format data --------------------------------
-#directly read from API - on 4_30_20, the cases were mistaken by deaths, API was corrected by SW
-apiData <-read.csv("https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv")
+apiData <- read.csv("https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv")
 cv1dd <- apiData[,grep("_cases", names(apiData), value=TRUE)]
-
-################################
 cv1dd <- t(cv1dd)
 counties <- c(cv1dd["Admin2_cases",])
 
 data <- cv1dd[tail(row.names(cv1dd),-10),]
 storage.mode(data) <- "numeric"
-#dim(data)
-# 98 72
-rownames(data)<-as.character(rownames(data))
-rownames(data)<-gsub("X", "", rownames(data))
-rownames(data)<-gsub("_cases", "", rownames(data))
-rownames(data)<-gsub('\\.', "/", rownames(data))
+
+rownames(data) <- as.character(rownames(data))
+rownames(data) <- gsub("X", "", rownames(data))
+rownames(data) <- gsub("_cases", "", rownames(data))
+rownames(data) <- gsub('\\.', "/", rownames(data))
 
 covid <-  data.frame(data)
 names(covid) <-  counties
-rownames(covid)<-as.Date(rownames(covid),"%m/%d/%y")
+rownames(covid) <- as.Date(rownames(covid),"%m/%d/%y")
 
 ##   aggregate data ---------------------
 
@@ -58,33 +52,33 @@ rownames(covid)<-as.Date(rownames(covid),"%m/%d/%y")
 # aggregate cases by day
 
 ######### shelter in place dates #####################################
-shelter_date = as.Date("3/25/2020","%m/%d/%Y")
-last_date  = range(rownames(covid))[2]
+shelter_date <- as.Date("3/25/2020","%m/%d/%Y")
+last_date <- range(rownames(covid))[2]
 
 ######################################################################
 covid$date <- rownames(covid)
-cv1dd = covid
+cv1dd <- covid
 
-results = data.frame()
+results <- data.frame()
 for (ind in seq(length(counties))){
-  county = counties[ind]
-  date_s = shelter_date
-  vars<-c("date",county)
+  county <- counties[ind]
+  date_s <- shelter_date
+  vars <- c("date",county)
   
   ##############   initial date   ######################
   # first case
-  ini_date = first(na.omit( cv1dd[vars] ))$date
+  ini_date <- first(na.omit( cv1dd[vars] ))$date
   ######################################################
-  cv2x<-cv1dd[which(cv1dd$date>ini_date & cv1dd$date<=last_date),] # data after school closure 
-  cv2<-cv2x[vars]
+  cv2x <- cv1dd[which(cv1dd$date>ini_date & cv1dd$date<=last_date),] # data after school closure 
+  cv2 <- cv2x[vars]
   colnames(cv2) <- c("Date", "Count")
   
   ### for input including the date info (needed later)
-  cv3<-cv2
+  cv3 <- cv2
   colnames(cv3) <- c("dates", "I")
   
-  cv4<-cv3
-  rownames(cv4) = seq(dim(cv4)[1])
+  cv4 <- cv3
+  rownames(cv4) <- seq(dim(cv4)[1])
   numCases <- sum(cv4$I)
   if (numCases == 0) {
     results[ind,1] <- county
@@ -94,14 +88,13 @@ for (ind in seq(length(counties))){
     results[ind,5] <- numCases
     results[ind,6] <- NA
     next
-  }
+    }
   
   ###################################################################
   dates_onset <- cv3$dates[
     unlist(lapply(1:nrow(cv4), 
-                  function(i) rep(i, cv4$I[i])
-    )
-    )
+                  function(i) rep(i, cv4$I[i]))
+           )
     ]
   onset <-dates_onset
   ####################################################################
@@ -156,6 +149,7 @@ for (ind in seq(length(counties))){
   
   # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
   R_R = res_before_during_after_closure$R
+  print(paste(county, "dim R_R", dim(R_R)[1], dim(R_R)[2], sep = " "))
   R_val = R_R$`Mean(R)`[dim(R_R)[1]]
   R_CIhi = R_R$`Quantile.0.975(R)`[dim(R_R)[1]]
   R_CIlo = R_R$`Quantile.0.025(R)`[dim(R_R)[1]]
