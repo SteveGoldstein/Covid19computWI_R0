@@ -1,6 +1,7 @@
 # Covid19computWI_R0
 
-Code from Dörte Döpfer and Francisco Reyes
+Code from Dörte Döpfer and Juan Francisco Mandujano Reyes
+
 Computes instantenous R0 for each WI county after fetching lastest JHU counts.
 
 One of two calculations can be selected using
