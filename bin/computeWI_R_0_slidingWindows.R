@@ -54,10 +54,6 @@ covid$date <- rownames(covid)
 cv1dd <- covid
 
 results <- data.frame()
-results_current <- data.frame()
-
-index <- 1
-
 for (ind in seq(length(counties))){
   county <- counties[ind]
   date_s <- shelter_date
@@ -81,12 +77,11 @@ for (ind in seq(length(counties))){
   rownames(cv4) <- seq(dim(cv4)[1])
   numCases <- sum(cv4$I)
   if (numCases == 0) {
-    results_current[index,1:11] <-  rep(NA,11)
-    results_current[index,12] <- county
-    #results_current[index,13] <- numCases
-    #results_current[index,14] <- NA  ## numDaysWithCases
-    index = index + 1
-    
+    results[ind,1:11] <-  rep(NA,11)
+    results[ind,12] <- county
+    #results[ind,13] <- numCases
+    #results[ind,14] <- NA  ## numDaysWithCases
+        
     next
     }
   
@@ -103,11 +98,10 @@ for (ind in seq(length(counties))){
   i <- incidence(onset, last_date = last_date)
   numDaysWithCases <- length(as.vector(i$counts))
   if ( numDaysWithCases <= 7){
-    results_current[index,1:11] <-  rep(NA, 11)
-    results_current[index,12] <-  county
-    #results_current[index,13] <- numCases
-    #results_current[index,14] <- numDaysWithCases
-    index = index + 1
+    results[ind,1:11] <-  rep(NA, 11)
+    results[ind,12] <-  county
+    #results[ind,13] <- numCases
+    #results[ind,14] <- numDaysWithCases
     next
     }
     
@@ -141,10 +135,7 @@ for (ind in seq(length(counties))){
   
  # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
    R_R = res_before_during_after_closure$R
-   print(paste(county, "dim R_R", dim(R_R)[1], dim(R_R)[2], sep = " "))
    R_val = R_R$`Mean(R)`[dim(R_R)[1]]
-   #R_CIhi = rbind(c(R_R$`Quantile.0.975(R)`[dim(R_R)[1]]))
-   #R_CIlo = rbind(c(R_R$`Quantile.0.025(R)`[dim(R_R)[1]]))
    R_CIhi = R_R$`Quantile.0.975(R)`[dim(R_R)[1]]
    R_CIlo = R_R$`Quantile.0.025(R)`[dim(R_R)[1]]
    if (args$verbose) {
@@ -158,16 +149,7 @@ for (ind in seq(length(counties))){
    results = rbind(results,R_R)
 }
 
-dim(results)
-dim(results_current)
-
-names(results_current) <- names(results)
- 
-# if you want all counties together:
-results = rbind(results,results_current) # if not just drop this line
 write.csv(results,args$outFile,quote=FALSE, row.names=FALSE)
-#write.csv(results_current,"results_current.csv",quote=FALSE, row.names=FALSE)
-
 warnings()
 dev.off()
 q()
