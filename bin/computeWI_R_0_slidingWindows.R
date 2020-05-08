@@ -65,6 +65,7 @@ cv1dd <- covid
 #q()
 
 results <- data.frame()
+#for (ind in 6:10) {
 for (ind in seq(length(counties))){
   county <- counties[ind]
   date_s <- shelter_date
@@ -149,8 +150,8 @@ for (ind in seq(length(counties))){
   # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
   R_R = res_before_during_after_closure$R
   R_val = R_R$`Mean(R)`[dim(R_R)[1]]
-  R_CIhi = R_R$`Quantile.0.975(R)`[dim(R_R)[1]]
-  R_CIlo = R_R$`Quantile.0.025(R)`[dim(R_R)[1]]
+  R_CIhi = R_R$`Quantile.0.95(R)`[dim(R_R)[1]]
+  R_CIlo = R_R$`Quantile.0.05(R)`[dim(R_R)[1]]
   if (args$verbose) {
     print(paste(ind,"The current R_0 in ",county," is: ", round(R_val, digits = 3),
                 "with 95% Credibility Interval (",round(R_CIlo, digits = 3),
@@ -169,8 +170,8 @@ for (ind in seq(length(counties))){
   
   ## change interval indices to dates;
   R_R <- R_R %>% 
-    mutate(t_start = onset[t_start]) %>% 
-    mutate(t_end =onset[t_end])
+    mutate(t_start = i$dates[t_start]) %>% 
+    mutate(t_end =i$dates[t_end])
   
   if (as.logical(args$current)) {
     results = rbind(results,R_R[dim(R_R)[1],])
@@ -188,7 +189,5 @@ q()
 
 
 #### to do
-##  select .95 and .25 columns
 ##  plots in a facet
-##  one more thing.  dates in output
 
