@@ -1,0 +1,175 @@
+
+Attaching package: ‘plyr’
+
+The following objects are masked from ‘package:reshape’:
+
+    rename, round_any
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:plyr’:
+
+    arrange, count, desc, failwith, id, mutate, rename, summarise,
+    summarize
+
+The following object is masked from ‘package:reshape’:
+
+    rename
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘data.table’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+The following object is masked from ‘package:reshape’:
+
+    melt
+
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+Default config will estimate R on weekly sliding windows.
+    To change this change the t_start and t_end arguments. 
+There were 25 warnings (use warnings() to see them)

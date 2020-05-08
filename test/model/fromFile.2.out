@@ -1,0 +1,74 @@
+Warning messages:
+1: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+2: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+3: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+4: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+5: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+6: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+7: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+8: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+9: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+10: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+11: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+12: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+13: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+14: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+15: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+16: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+17: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+18: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+19: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+20: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+21: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+22: In check_si_distr(si_distr, "warning") : si_distr does not sum to 1.
+23: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+24: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+25: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
