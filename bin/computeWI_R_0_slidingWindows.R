@@ -17,6 +17,7 @@ defaultArgs <- list (
   outFile =  'results/2020-05-04/WI_RO_all.csv',
   inFile = NULL,
   current = FALSE,
+  includeState = TRUE,
   verbose = FALSE
 )
 
@@ -24,6 +25,7 @@ args <- R.utils::commandArgs(trailingOnly = TRUE,
                              asValues = TRUE ,
                              defaults = defaultArgs)
 
+includeState <- as.logical(args$includeState)
 if (! is.null(args$plotFile)) {
   pdf(args$plotFile)
 }
@@ -61,6 +63,10 @@ last_date <- range(rownames(covid))[2]
 covid$date <- rownames(covid)
 cv1dd <- covid
 
+if (includeState) {
+  cv1dd <- cv1dd %>% mutate(Wisconsin=rowSums(.[1:length(counties)])) 
+  counties <- c(counties,"Wisconsin")
+}
 #write.csv(cv1dd,args$outFile,quote=FALSE, row.names=FALSE)
 #q()
 
