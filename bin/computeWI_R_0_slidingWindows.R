@@ -29,9 +29,9 @@ if (! is.null(args$plotFile)) {
 }
 
 if (is.null(args$inFile)) {
-    dataSource <- "https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv"
+  dataSource <- "https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv"
 } else {
-    dataSource <- args$inFile
+  dataSource <- args$inFile
 }
 
 apiData <- read.csv(dataSource)
@@ -66,6 +66,7 @@ cv1dd <- covid
 
 results <- data.frame()
 for (ind in seq(length(counties))){
+#for (ind in 7:8){
   county <- counties[ind]
   date_s <- shelter_date
   vars <- c("date",county)
@@ -88,20 +89,19 @@ for (ind in seq(length(counties))){
   rownames(cv4) <- seq(dim(cv4)[1])
   numCases <- sum(cv4$I)
   if (numCases == 0) {
-      results <- rbind(results, c(rep(NA,11),county))
-    #results[ind,1:11] <-  rep(NA,11)
-    #results[ind,12] <- county
-    #results[ind,13] <- numCases
-    #results[ind,14] <- NA  ## numDaysWithCases
-        
+    numDaysWithCases <- NA
+    df <-  unname(data.frame(
+      matrix(rep(NA,11),nrow=1),county,numCases,numDaysWithCases
+    ))
+    results[nrow(results)+1,1:length(df)] <- df
     next
-    }
+  }
   
   ###################################################################
   dates_onset <- cv3$dates[
     unlist(lapply(1:nrow(cv4), 
                   function(i) rep(i, cv4$I[i]))
-           )
+    )
     ]
   onset <-dates_onset
   ####################################################################
@@ -110,14 +110,13 @@ for (ind in seq(length(counties))){
   i <- incidence(onset, last_date = last_date)
   numDaysWithCases <- length(as.vector(i$counts))
   if ( numDaysWithCases <= 7){
-      results <- rbind(results, c(rep(NA,11),county))
-    #results[ind,1:11] <-  rep(NA, 11)
-    #results[ind,12] <-  county
-    #results[ind,13] <- numCases
-    #results[ind,14] <- numDaysWithCases
+    df <-  unname(data.frame(
+      matrix(rep(NA,11),nrow=1),county,numCases,numDaysWithCases
+    ))
+    results[nrow(results)+1,1:length(df)] <- df
     next
-    }
-    
+  }
+  
   #The function get_R is then used to estimate the most likely values of R:
   mu <- 7.5 # mean in days days
   sigma <- 3.4 # standard deviation in days
@@ -136,8 +135,8 @@ for (ind in seq(length(counties))){
                  mean_si = mu, 
                  std_si = sigma)
                )
-            )
- # plot R0 over time by county  
+    )
+  # plot R0 over time by county  
   if (!is.null(args$plotFile)) {
     R0_plot <- 
       plot(res_before_during_after_closure, "R") +
@@ -146,30 +145,37 @@ for (ind in seq(length(counties))){
     print(R0_plot)
   }
   
- # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
-   R_R = res_before_during_after_closure$R
-   R_val = R_R$`Mean(R)`[dim(R_R)[1]]
-   R_CIhi = R_R$`Quantile.0.975(R)`[dim(R_R)[1]]
-   R_CIlo = R_R$`Quantile.0.025(R)`[dim(R_R)[1]]
-   if (args$verbose) {
-     print(paste(ind,"The current R_0 in ",county," is: ", round(R_val, digits = 3),
-                 "with 95% Credibility Interval (",round(R_CIlo, digits = 3),
-                 ",",round(R_CIhi, digits = 3),")")
-     )
-   }
-   
-   R_R$county = rep(county,dim(R_R)[1])
+  # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
+  R_R = res_before_during_after_closure$R
+  R_val = R_R$`Mean(R)`[dim(R_R)[1]]
+  R_CIhi = R_R$`Quantile.0.975(R)`[dim(R_R)[1]]
+  R_CIlo = R_R$`Quantile.0.025(R)`[dim(R_R)[1]]
+  if (args$verbose) {
+    print(paste(ind,"The current R_0 in ",county," is: ", round(R_val, digits = 3),
+                "with 95% Credibility Interval (",round(R_CIlo, digits = 3),
+                ",",round(R_CIhi, digits = 3),")")
+    )
+  }
+
+  ## if first R0 calculation:  name the columns;
+  if (!is.na(names(results)[1]) & names(R_R)[1] != names(results)[1]) {
+    names(results) <- c(names(R_R),"county","numCases","numDaysWithCases")  
+  }
+  #R_R <- round(R_R,digits=3)
+  R_R$county = rep(county,dim(R_R)[1])
+  R_R$numCases = rep(numCases,dim(R_R)[1])
+  R_R$numDaysWithCases = rep(numDaysWithCases,dim(R_R)[1])
   if (as.logical(args$current)) {
-      results = rbind(results,R_R[dim(R_R)[1],])
+    results = rbind(results,R_R[dim(R_R)[1],])
   } else {
-      results = rbind(results,R_R)
+    results = rbind(results,R_R)
   }
 }
 
 write.csv(results,args$outFile,quote=FALSE, row.names=FALSE)
 warnings()
 if (!is.null(args$plotFile)) {
-    dev.off()
+  dev.off()
 }
 q()
 
