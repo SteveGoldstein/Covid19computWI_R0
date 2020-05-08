@@ -66,7 +66,7 @@ cv1dd <- covid
 
 results <- data.frame()
 for (ind in seq(length(counties))){
-#for (ind in 7:8){
+#for (ind in 6:8){
   county <- counties[ind]
   date_s <- shelter_date
   vars <- c("date",county)
@@ -91,7 +91,8 @@ for (ind in seq(length(counties))){
   if (numCases == 0) {
     numDaysWithCases <- NA
     df <-  unname(data.frame(
-      matrix(rep(NA,11),nrow=1),county,numCases,numDaysWithCases
+      matrix(rep(NA,11),nrow=1),county,numCases,numDaysWithCases,
+      stringsAsFactors = FALSE
     ))
     results[nrow(results)+1,1:length(df)] <- df
     next
@@ -111,7 +112,8 @@ for (ind in seq(length(counties))){
   numDaysWithCases <- length(as.vector(i$counts))
   if ( numDaysWithCases <= 7){
     df <-  unname(data.frame(
-      matrix(rep(NA,11),nrow=1),county,numCases,numDaysWithCases
+      matrix(rep(NA,11),nrow=1),county,numCases,numDaysWithCases,
+      stringsAsFactors = FALSE
     ))
     results[nrow(results)+1,1:length(df)] <- df
     next
