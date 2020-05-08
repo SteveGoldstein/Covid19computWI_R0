@@ -13,8 +13,10 @@ library(dplyr)
 library(data.table)
 
 defaultArgs <- list (
-  plotFile = 'results/2020-05-04/R0_all.pdf',
+  plotFile = NULL,
   outFile =  'results/2020-05-04/WI_RO_all.csv',
+  inFile = NULL,
+  current = FALSE,
   verbose = FALSE
 )
 
@@ -26,7 +28,13 @@ if (! is.null(args$plotFile)) {
   pdf(args$plotFile)
 }
 
-apiData <- read.csv("https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv")
+if (is.null(args$inFile)) {
+    dataSource <- "https://afidsi-covid19.s3.amazonaws.com/wi_county_data.csv"
+} else {
+    dataSource <- args$inFile
+}
+
+apiData <- read.csv(dataSource)
 cv1dd <- apiData[,grep("_cases", names(apiData), value=TRUE)]
 cv1dd <- t(cv1dd)
 counties <- c(cv1dd["Admin2_cases",])
@@ -52,6 +60,9 @@ last_date <- range(rownames(covid))[2]
 
 covid$date <- rownames(covid)
 cv1dd <- covid
+
+#write.csv(cv1dd,args$outFile,quote=FALSE, row.names=FALSE)
+#q()
 
 results <- data.frame()
 for (ind in seq(length(counties))){
@@ -146,12 +157,18 @@ for (ind in seq(length(counties))){
    }
    
    R_R$county = rep(county,dim(R_R)[1])
-   results = rbind(results,R_R)
+  if (as.logical(args$current)) {
+      results = rbind(results,R_R[dim(R_R)[1],])
+  } else {
+      results = rbind(results,R_R)
+  }
 }
 
 write.csv(results,args$outFile,quote=FALSE, row.names=FALSE)
 warnings()
-dev.off()
+if (!is.null(args$plotFile)) {
+    dev.off()
+}
 q()
 
 
