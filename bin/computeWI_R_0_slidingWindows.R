@@ -88,8 +88,9 @@ for (ind in seq(length(counties))){
   rownames(cv4) <- seq(dim(cv4)[1])
   numCases <- sum(cv4$I)
   if (numCases == 0) {
-    results[ind,1:11] <-  rep(NA,11)
-    results[ind,12] <- county
+      results <- rbind(results, c(rep(NA,11),county))
+    #results[ind,1:11] <-  rep(NA,11)
+    #results[ind,12] <- county
     #results[ind,13] <- numCases
     #results[ind,14] <- NA  ## numDaysWithCases
         
@@ -109,8 +110,9 @@ for (ind in seq(length(counties))){
   i <- incidence(onset, last_date = last_date)
   numDaysWithCases <- length(as.vector(i$counts))
   if ( numDaysWithCases <= 7){
-    results[ind,1:11] <-  rep(NA, 11)
-    results[ind,12] <-  county
+      results <- rbind(results, c(rep(NA,11),county))
+    #results[ind,1:11] <-  rep(NA, 11)
+    #results[ind,12] <-  county
     #results[ind,13] <- numCases
     #results[ind,14] <- numDaysWithCases
     next
