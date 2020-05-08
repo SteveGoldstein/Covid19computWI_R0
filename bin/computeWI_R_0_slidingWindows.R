@@ -66,7 +66,6 @@ cv1dd <- covid
 
 results <- data.frame()
 for (ind in seq(length(counties))){
-#for (ind in 6:8){
   county <- counties[ind]
   date_s <- shelter_date
   vars <- c("date",county)
@@ -163,10 +162,16 @@ for (ind in seq(length(counties))){
   if (!is.na(names(results)[1]) & names(R_R)[1] != names(results)[1]) {
     names(results) <- c(names(R_R),"county","numCases","numDaysWithCases")  
   }
-  #R_R <- round(R_R,digits=3)
+  R_R <- round(R_R,digits=3)
   R_R$county = rep(county,dim(R_R)[1])
   R_R$numCases = rep(numCases,dim(R_R)[1])
   R_R$numDaysWithCases = rep(numDaysWithCases,dim(R_R)[1])
+  
+  ## change interval indices to dates;
+  R_R <- R_R %>% 
+    mutate(t_start = onset[t_start]) %>% 
+    mutate(t_end =onset[t_end])
+  
   if (as.logical(args$current)) {
     results = rbind(results,R_R[dim(R_R)[1],])
   } else {
