@@ -5,6 +5,7 @@ library(earlyR)    ## get_R
 library(EpiEstim)  ## estimate_R
 library(ggplot2)
 
+library(tidyverse)
 library(dplyr)
 library(data.table)  ## first
 
@@ -32,35 +33,35 @@ if (is.null(args$inFile)) {
   dataSource <- args$inFile
 }
 
-apiData <- read.csv(dataSource)
-cv1dd <- apiData[,grep("_cases", names(apiData), value=TRUE)]
-cv1dd <- t(cv1dd)
-counties <- c(cv1dd["Admin2_cases",])
+apiData <- read.csv(dataSource,stringsAsFactors = FALSE)
 
-data <- cv1dd[tail(row.names(cv1dd),-10),]
-storage.mode(data) <- "numeric"
+cv1dd <- apiData %>% 
+  select(grep("_cases",names(.), value=TRUE)) %>% 
+  column_to_rownames(var="Admin2_cases") %>% 
+  select(tail(names(.),-9))
+counties <- row.names(cv1dd)
 
-rownames(data) <- as.character(rownames(data))
-rownames(data) <- gsub("X", "", rownames(data))
-rownames(data) <- gsub("_cases", "", rownames(data))
-rownames(data) <- gsub('\\.', "/", rownames(data))
+names(cv1dd) <- names(cv1dd) %>% 
+  gsub("X","", .) %>% 
+  gsub("_cases","",.) %>% 
+  gsub("\\.", "/", .) %>% 
+  as.Date("%m/%d/%y")
 
-covid <-  data.frame(data)
-names(covid) <-  counties
-rownames(covid) <- as.Date(rownames(covid),"%m/%d/%y")
+cv1dd <-  data.frame(t(cv1dd)) %>% 
+  rownames_to_column(var = "date")
+
 #############################
 # aggregate cases by day
 
 shelter_date <- as.Date("3/25/2020","%m/%d/%Y")
-last_date <- range(rownames(covid))[2]
-
+#last_date <- rownames(cv1dd)[nrow(cv1dd)]
+#last_date <- range(cv1dd$date)[2]
 ######################################################################
 
-covid$date <- rownames(covid)
-cv1dd <- covid
 
 if (includeState) {
-  cv1dd <- cv1dd %>% mutate(Wisconsin=rowSums(.[1:length(counties)])) 
+  cv1dd <- cv1dd %>% 
+    mutate(Wisconsin=rowSums(.[,-which(names(.) =="date")]))
   counties <- c(counties,"Wisconsin")
 }
 #write.csv(cv1dd,args$outFile,quote=FALSE, row.names=FALSE)
@@ -74,15 +75,15 @@ for (ind in seq(length(counties))){
   vars <- c("date",county)
   
   ##############   initial date   ######################
-  # first case
-  ini_date <- first(na.omit( cv1dd[vars] ))$date
-  
+  # first case and last day with counts
+  dateEndpts <- as.Date(range(cv1dd[vars]$date))
+  ini_date  <- dateEndpts[1]
+  last_date <- dateEndpts[2]
+
   ######################################################
-  
   cv2x <- cv1dd[which(cv1dd$date>ini_date & cv1dd$date<=last_date),] # data after school closure 
   cv2 <- cv2x[vars]
   colnames(cv2) <- c("Date", "Count")
-  
   ### for input including the date info (needed later)
   cv3 <- cv2
   colnames(cv3) <- c("dates", "I")
@@ -120,7 +121,6 @@ for (ind in seq(length(counties))){
     results[nrow(results)+1,1:length(df)] <- df
     next
   }
-  
   #The function get_R is then used to estimate the most likely values of R:
   mu <- 7.5 # mean in days days
   sigma <- 3.4 # standard deviation in days
@@ -160,7 +160,6 @@ for (ind in seq(length(counties))){
                 ",",round(R_CIhi, digits = 3),")")
     )
   }
-
   ## if first R0 calculation:  name the columns;
   if (!is.na(names(results)[1]) & names(R_R)[1] != names(results)[1]) {
     names(results) <- c(names(R_R),"county","numCases","numDaysWithCases")  
