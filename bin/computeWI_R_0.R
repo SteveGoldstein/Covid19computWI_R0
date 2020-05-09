@@ -49,13 +49,6 @@ names(cv1dd) <- names(cv1dd) %>%
 cv1dd <-  data.frame(t(cv1dd)) %>% 
   rownames_to_column(var = "date")
 
-#############################
-# aggregate cases by day
-
-shelter_date <- as.Date("3/25/2020","%m/%d/%Y")
-######################################################################
-
-
 if (includeState) {
   cv1dd <- cv1dd %>% 
     mutate(Wisconsin=rowSums(.[,-which(names(.) =="date")]))
@@ -69,7 +62,6 @@ for (ind in seq(length(counties))){
   county <- counties[ind]
   countyName <- county %>% 
     gsub("\\.([^.])", " \\1",., perl=TRUE )
-  date_s <- shelter_date
   vars <- c("date",county)
   
   ##############   initial date   ######################
@@ -78,18 +70,13 @@ for (ind in seq(length(counties))){
   ini_date  <- dateEndpts[1]
   last_date <- dateEndpts[2]
   
-  ######################################################
-  cv2x <- cv1dd[which(cv1dd$date>ini_date & cv1dd$date<=last_date),] # data after school closure 
+  cvCounty <- cv1dd %>% 
+    filter(date > ini_date & date <= last_date) %>% 
+    select(all_of(vars))
+  names(cvCounty) <- c("dates", "I")
+  rownames(cvCounty) <- seq(nrow(cvCounty))
 
-  cv2 <- cv2x[vars]
-  colnames(cv2) <- c("Date", "Count")
-  ### for input including the date info (needed later)
-  cv3 <- cv2
-  colnames(cv3) <- c("dates", "I")
-  
-  cv4 <- cv3
-  rownames(cv4) <- seq(dim(cv4)[1])
-  numCases <- sum(cv4$I)
+  numCases <- sum(cvCounty$I)
   if (numCases == 0) {
     numDaysWithCases <- NA
     df <-  unname(data.frame(
@@ -100,15 +87,14 @@ for (ind in seq(length(counties))){
     next
   }
   ###################################################################
-  dates_onset <- cv3$dates[
-    unlist(lapply(1:nrow(cv4), 
-                  function(i) rep(i, cv4$I[i]))
+  onset <- cvCounty$dates[
+    unlist(lapply(1:nrow(cvCounty), 
+                  function(i) rep(i, cvCounty$I[i]))
     )
     ]
-  onset <-dates_onset
+  
   ####################################################################
   ############## till end
-  today <- as.Date(last_date)
   i <- incidence(onset, last_date = last_date)
   numDaysWithCases <- length(as.vector(i$counts))
   if ( numDaysWithCases <= 7){
