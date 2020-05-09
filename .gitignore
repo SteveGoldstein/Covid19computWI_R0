@@ -5,5 +5,5 @@ out/
 old/
 .??*
 results/
-test/output
+test/output*/
 
