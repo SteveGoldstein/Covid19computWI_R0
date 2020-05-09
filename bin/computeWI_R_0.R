@@ -9,6 +9,8 @@ library(dplyr)
 library(tidyverse)  ##rowname_to_column and column_to_rownames
 
 defaultArgs <- list (
+  mu    = 7.5,  ## serial interval  mean (days)
+  sigma = 3.4,  ## serial interval SD (days)
   plotFile = NULL,
   outFile =  'WI_RO.csv',
   inFile = NULL,       ## by-pass download
@@ -21,7 +23,10 @@ args <- R.utils::commandArgs(trailingOnly = TRUE,
                              asValues = TRUE ,
                              defaults = defaultArgs)
 
+mu <- as.numeric(args$mu)
+sigma <- as.numeric(args$sigma)
 includeState <- as.logical(args$includeState)
+
 if (! is.null(args$plotFile)) {
   pdf(args$plotFile)
 }
@@ -62,20 +67,15 @@ for (ind in seq(length(counties))){
   county <- counties[ind]
   countyName <- county %>% 
     gsub("\\.([^.])", " \\1",., perl=TRUE )
-  vars <- c("date",county)
-  
-  ##############   initial date   ######################
-  # first case and last day with counts
-  dateEndpts <- as.Date(range(cv1dd[vars]$date))
+    
+  cvCounty <- cv1dd %>% 
+    select(all_of(c("date",county)))
+  names(cvCounty) <- c("dates", "I")
+  dateEndpts <- as.Date(range(cvCounty$date))
   ini_date  <- dateEndpts[1]
   last_date <- dateEndpts[2]
-  
-  cvCounty <- cv1dd %>% 
-    filter(date > ini_date & date <= last_date) %>% 
-    select(all_of(vars))
-  names(cvCounty) <- c("dates", "I")
-  rownames(cvCounty) <- seq(nrow(cvCounty))
-
+  cvCounty <- cvCounty %>% 
+    filter(dates > ini_date & dates <= last_date)
   numCases <- sum(cvCounty$I)
   if (numCases == 0) {
     numDaysWithCases <- NA
@@ -94,7 +94,6 @@ for (ind in seq(length(counties))){
     ]
   
   ####################################################################
-  ############## till end
   i <- incidence(onset, last_date = last_date)
   numDaysWithCases <- length(as.vector(i$counts))
   if ( numDaysWithCases <= 7){
@@ -106,9 +105,6 @@ for (ind in seq(length(counties))){
     next
   }
   #The function get_R is then used to estimate the most likely values of R:
-  mu <- 7.5 # mean in days days
-  sigma <- 3.4 # standard deviation in days
-  
   if (args$verbose) {
     res <- get_R(i, si_mean = mu, si_sd = sigma)
     si <- res$si
