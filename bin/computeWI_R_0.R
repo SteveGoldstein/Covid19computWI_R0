@@ -1,14 +1,10 @@
 # run instantaneous R0 calculations per county from data pulled through API by Steve Wangen
 
-library(incidence)
-library(earlyR)
-library(EpiEstim)
-library(projections)
-library(epitools)
-library(Epi)
+library(incidence) ## incidence
+library(earlyR)    ## get_R
+library(EpiEstim)  ## estimate_R
 library(ggplot2)
-library(reshape)
-library(plyr)
+
 library(dplyr)
 library(data.table)
 
