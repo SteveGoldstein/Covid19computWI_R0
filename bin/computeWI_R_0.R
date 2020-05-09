@@ -131,23 +131,28 @@ for (ind in seq(length(counties))){
   
   # all R0's over time in a table, including the quantiles, can construct 95% credibility interval from this
   R_R = res_before_during_after_closure$R
-  R_val = R_R$`Mean(R)`[dim(R_R)[1]]
-  R_CIhi = R_R$`Quantile.0.95(R)`[dim(R_R)[1]]
-  R_CIlo = R_R$`Quantile.0.05(R)`[dim(R_R)[1]]
+  R_R <- round(R_R,digits=3)  
+  
   if (args$verbose) {
-    print(paste(ind,"The current R_0 in ",countyName," is: ", round(R_val, digits = 3),
-                "with 95% Credibility Interval (",round(R_CIlo, digits = 3),
-                ",",round(R_CIhi, digits = 3),")")
+    R_val = R_R$`Mean(R)`[nrow(R_R)]
+    R_CIhi = R_R$`Quantile.0.95(R)`[nrow(R_R)]
+    R_CIlo = R_R$`Quantile.0.05(R)`[nrow(R_R)]
+    
+    print(paste(ind,"The current R_0 in ",countyName," is: ", 
+                R_val,
+                "with 95% Credibility Interval (",
+                R_CIlo,
+                ",",R_CIhi,")")
     )
   }
   ## if first R0 calculation:  name the columns;
   if (!is.na(names(results)[1]) & names(R_R)[1] != names(results)[1]) {
     names(results) <- c(names(R_R),"county","numCases","numDaysWithCases")  
   }
-  R_R <- round(R_R,digits=3)
-  R_R$county = rep(countyName,dim(R_R)[1])
-  R_R$numCases = rep(numCases,dim(R_R)[1])
-  R_R$numDaysWithCases = rep(numDaysWithCases,dim(R_R)[1])
+
+  R_R$county = rep(countyName,nrow(R_R))
+  R_R$numCases = rep(numCases,nrow(R_R))
+  R_R$numDaysWithCases = rep(numDaysWithCases,nrow(R_R))
   
   ## change interval indices to dates;
   R_R <- R_R %>% 
@@ -155,7 +160,7 @@ for (ind in seq(length(counties))){
     mutate(t_end =i$dates[t_end])
   
   if (as.logical(args$current)) {
-    results = rbind(results,R_R[dim(R_R)[1],])
+    results = rbind(results,R_R[nrow(R_R),])
   } else {
     results = rbind(results,R_R)
   }
