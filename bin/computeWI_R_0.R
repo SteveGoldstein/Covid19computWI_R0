@@ -6,14 +6,14 @@ library(EpiEstim)  ## estimate_R
 library(ggplot2)
 
 library(dplyr)
-library(data.table)
+library(data.table)  ## first
 
 defaultArgs <- list (
   plotFile = NULL,
-  outFile =  'results/2020-05-04/WI_RO_all.csv',
-  inFile = NULL,
-  current = FALSE,
-  includeState = TRUE,
+  outFile =  'WI_RO.csv',
+  inFile = NULL,       ## by-pass download
+  current = FALSE,     ## current R0 or all?
+  includeState = TRUE, ## Wisconsin total
   verbose = FALSE
 )
 
