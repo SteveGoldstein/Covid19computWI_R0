@@ -5,9 +5,8 @@ library(earlyR)    ## get_R
 library(EpiEstim)  ## estimate_R
 library(ggplot2)
 
-library(tidyverse)
 library(dplyr)
-library(data.table)  ## first
+library(tidyverse)  ##rowname_to_column and column_to_rownames
 
 defaultArgs <- list (
   plotFile = NULL,
@@ -39,7 +38,7 @@ cv1dd <- apiData %>%
   select(grep("_cases",names(.), value=TRUE)) %>% 
   column_to_rownames(var="Admin2_cases") %>% 
   select(tail(names(.),-9))
-counties <- row.names(cv1dd)
+counties <- make.names(row.names(cv1dd))
 
 names(cv1dd) <- names(cv1dd) %>% 
   gsub("X","", .) %>% 
@@ -54,8 +53,6 @@ cv1dd <-  data.frame(t(cv1dd)) %>%
 # aggregate cases by day
 
 shelter_date <- as.Date("3/25/2020","%m/%d/%Y")
-#last_date <- rownames(cv1dd)[nrow(cv1dd)]
-#last_date <- range(cv1dd$date)[2]
 ######################################################################
 
 
@@ -68,9 +65,10 @@ if (includeState) {
 #q()
 
 results <- data.frame()
-#for (ind in 6:10) {
 for (ind in seq(length(counties))){
   county <- counties[ind]
+  countyName <- county %>% 
+    gsub("\\.([^.])", " \\1",., perl=TRUE )
   date_s <- shelter_date
   vars <- c("date",county)
   
@@ -79,9 +77,10 @@ for (ind in seq(length(counties))){
   dateEndpts <- as.Date(range(cv1dd[vars]$date))
   ini_date  <- dateEndpts[1]
   last_date <- dateEndpts[2]
-
+  
   ######################################################
   cv2x <- cv1dd[which(cv1dd$date>ini_date & cv1dd$date<=last_date),] # data after school closure 
+
   cv2 <- cv2x[vars]
   colnames(cv2) <- c("Date", "Count")
   ### for input including the date info (needed later)
@@ -100,7 +99,6 @@ for (ind in seq(length(counties))){
     results[nrow(results)+1,1:length(df)] <- df
     next
   }
-  
   ###################################################################
   dates_onset <- cv3$dates[
     unlist(lapply(1:nrow(cv4), 
@@ -145,7 +143,7 @@ for (ind in seq(length(counties))){
     R0_plot <- 
       plot(res_before_during_after_closure, "R") +
       geom_hline(aes(yintercept = 1), color = "red", lty = 2) +
-      ggtitle(county)
+      ggtitle(countyName)
     print(R0_plot)
   }
   
@@ -155,7 +153,7 @@ for (ind in seq(length(counties))){
   R_CIhi = R_R$`Quantile.0.95(R)`[dim(R_R)[1]]
   R_CIlo = R_R$`Quantile.0.05(R)`[dim(R_R)[1]]
   if (args$verbose) {
-    print(paste(ind,"The current R_0 in ",county," is: ", round(R_val, digits = 3),
+    print(paste(ind,"The current R_0 in ",countyName," is: ", round(R_val, digits = 3),
                 "with 95% Credibility Interval (",round(R_CIlo, digits = 3),
                 ",",round(R_CIhi, digits = 3),")")
     )
@@ -165,7 +163,7 @@ for (ind in seq(length(counties))){
     names(results) <- c(names(R_R),"county","numCases","numDaysWithCases")  
   }
   R_R <- round(R_R,digits=3)
-  R_R$county = rep(county,dim(R_R)[1])
+  R_R$county = rep(countyName,dim(R_R)[1])
   R_R$numCases = rep(numCases,dim(R_R)[1])
   R_R$numDaysWithCases = rep(numDaysWithCases,dim(R_R)[1])
   
