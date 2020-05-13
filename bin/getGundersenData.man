@@ -1,0 +1,5 @@
+
+curl -o 2020-05-13-time_series_covid19_confirmed_US.csv https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv
+
+ cat input/raw/2020-05-13-time_series_covid19_confirmed_US.csv |perl -F, -nale 'BEGIN{open GUN, "gundersenCounties.list";  while(<GUN>) { chomp; $h{$_}=1; } close GUN} if ($.==1){$i=0; map{$_ .= "_cases" }@F[0..3,5..$#F]; print join ",", "",@F;next} next unless (exists $h{"$F[5],$F[6]"});$i++; print join ",", $i, @F'  > input/processed/2020-05-13-gundersen.csv
+
