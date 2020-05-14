@@ -20,7 +20,7 @@ Rscript --vanilla bin/computeWI_R_0.R -aggregateLabel none -outFile $dir/fromFil
 i=3;
 Rscript --vanilla bin/computeWI_R_0.R -aggregateLabel none -current TRUE -outFile $dir/fromFile.$i.csv -inFile test/input/sw.csv  1> $dir/fromFile.$i.out 2> $dir/fromFile.$i.err &
 
-#### only current R0; exclude state;  -verbose and -plotFile 
+#### only current R0; include state;  -verbose and -plotFile 
 i=4;
-Rscript --vanilla bin/computeWI_R_0.R -aggregateLabel none -current TRUE -outFile $dir/fromFile.$i.csv -inFile test/input/sw.csv  -verbose TRUE -plotFile $dir/fromFile.$i.pdf 1> $dir/fromFile.$i.out 2> $dir/fromFile.$i.err &
+Rscript --vanilla bin/computeWI_R_0.R -aggregateLabel Wisconsin -current TRUE -outFile $dir/fromFile.$i.csv -inFile test/input/sw.csv  -verbose TRUE -plotFile $dir/fromFile.$i.pdf 1> $dir/fromFile.$i.out 2> $dir/fromFile.$i.err &
 
