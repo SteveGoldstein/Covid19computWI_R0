@@ -400,6 +400,12 @@ A discrete distribution
     shape: 4.8659169550173
     scale: 1.54133333333333
 [1] "72 The current R_0 in  Wood  is:  1.056 with 95% Credibility Interval ( 0.651 , 1.541 )"
+A discrete distribution
+  name: gamma
+  parameters:
+    shape: 4.8659169550173
+    scale: 1.54133333333333
+[1] "73 The current R_0 in  Wisconsin  is:  1.37 with 95% Credibility Interval ( 1.361 , 1.38 )"
 Warning messages:
 1: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
   You're estimating R too early in the epidemic to get the desired
@@ -474,5 +480,3 @@ Warning messages:
 25: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
   You're estimating R too early in the epidemic to get the desired
             posterior CV.
-null device 
-          1 
