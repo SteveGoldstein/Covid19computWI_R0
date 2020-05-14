@@ -9,13 +9,13 @@ library(dplyr)
 library(tidyverse)  ##rowname_to_column and column_to_rownames
 library(tidyselect)
 
-calculate_r0 <- function(
+calculateR0 <- function(
   mu    = 7.5,  ## serial interval  mean (days)
   sigma = 3.4,  ## serial interval SD (days)
   plotFile = NULL,
   inFile = NULL,       ## by-pass download
   current = FALSE,     ## current R0 or all?
-  aggregateLabel = NULL, ## add aggregrating total
+  aggregateLabel = "none", ## add aggregrating total
   verbose = FALSE
 ) {
   
@@ -46,7 +46,7 @@ calculate_r0 <- function(
   cv1dd <-  data.frame(t(cv1dd)) %>% 
     rownames_to_column(var = "date")
   
-  if (!is.null(aggregateLabel) ) {
+  if (!(aggregateLabel == "none") ) {
     cv1dd <- cv1dd %>% 
       mutate(!!aggregateLabel := rowSums(.[,-which(names(.) =="date")]))
     counties <- c(counties, aggregateLabel)
@@ -155,6 +155,11 @@ calculate_r0 <- function(
       results = rbind(results,R_R)
     }
   }
+
+  if (!is.null(plotFile)) {
+      dev.off()
+  }
+
   return(results)
 }
 

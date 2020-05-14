@@ -15,7 +15,7 @@ defaultArgs <- list (
   outFile =  'WI_RO.csv',
   inFile = NULL,       ## by-pass download
   current = FALSE,     ## current R0 or all?
-  aggregateLabel = NULL, ## Wisconsin total
+  aggregateLabel = "Wisconsin", ## Wisconsin total
   verbose = FALSE
 )
 
@@ -25,7 +25,7 @@ args <- R.utils::commandArgs(trailingOnly = TRUE,
 source("lib/estimate.R")
 
 results <- 
-  calculate_r0(
+  calculateR0(
     mu    = as.numeric(args$mu),      ## 7.5 serial interval  mean (days)
     sigma = as.numeric(args$sigma),   ## 3.4 serial interval SD (days)
     plotFile = args$plotFile,
@@ -37,9 +37,6 @@ results <-
 
 write.csv(results,args$outFile,quote=FALSE, row.names=FALSE)
 warnings()
-if (!is.null(args$plotFile)) {
-  dev.off()
-}
 q()
 
 

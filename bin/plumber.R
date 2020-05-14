@@ -14,5 +14,5 @@ source('lib/estimate.R')
 #* Calculate r0 values based on most current infection counts
 #* @get /r0
 function() {
-  calculate_r0()
+  calculateR0()
 }
