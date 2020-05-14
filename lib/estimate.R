@@ -51,7 +51,12 @@ calculateR0 <- function(
       mutate(!!aggregateLabel := rowSums(.[,-which(names(.) =="date")]))
     counties <- c(counties, aggregateLabel)
   }
-  
+
+  ## convert cumulative counts to new cases each day;
+  for(i in nrow(cv1dd):2) {
+    cv1dd[i,2:ncol(cv1dd)] <-  cv1dd[i,2:ncol(cv1dd)] - cv1dd[i-1,2:ncol(cv1dd)]
+  }
+
   results <- data.frame()
   for (ind in seq(length(counties))){
     county <- counties[ind]
