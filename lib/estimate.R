@@ -15,7 +15,7 @@ calculate_r0 <- function(
   plotFile = NULL,
   inFile = NULL,       ## by-pass download
   current = FALSE,     ## current R0 or all?
-  includeState = TRUE, ## Wisconsin total
+  aggregateLabel = NULL, ## add aggregrating total
   verbose = FALSE
 ) {
   
@@ -46,10 +46,10 @@ calculate_r0 <- function(
   cv1dd <-  data.frame(t(cv1dd)) %>% 
     rownames_to_column(var = "date")
   
-  if (includeState) {
+  if (!is.null(aggregateLabel) ) {
     cv1dd <- cv1dd %>% 
-      mutate(Wisconsin=rowSums(.[,-which(names(.) =="date")]))
-    counties <- c(counties,"Wisconsin")
+      mutate(!!aggregateLabel := rowSums(.[,-which(names(.) =="date")]))
+    counties <- c(counties, aggregateLabel)
   }
   
   results <- data.frame()

@@ -15,7 +15,7 @@ defaultArgs <- list (
   outFile =  'WI_RO.csv',
   inFile = NULL,       ## by-pass download
   current = FALSE,     ## current R0 or all?
-  includeState = TRUE, ## Wisconsin total
+  aggregateLabel = NULL, ## Wisconsin total
   verbose = FALSE
 )
 
@@ -31,7 +31,7 @@ results <-
     plotFile = args$plotFile,
     inFile = args$inFile,             ## by-pass download
     current = as.logical(args$current),   ## current R0 or all?
-    includeState = as.logical(args$includeState), ## Wisconsin total
+    aggregateLabel = args$aggregateLabel, ## Wisconsin total
     verbose = args$verbose
 )
 
