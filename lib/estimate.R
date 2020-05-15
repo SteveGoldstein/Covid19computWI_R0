@@ -51,10 +51,16 @@ calculateR0 <- function(
       mutate(!!aggregateLabel := rowSums(.[,-which(names(.) =="date")]))
     counties <- c(counties, aggregateLabel)
   }
-
+  
+  # force monotonicity
+  for(i in nrow(cv1dd):2) {
+    cv1dd[i-1,2:ncol(cv1dd)] <- 
+      pmin(cv1dd[i,2:ncol(cv1dd)],cv1dd[i-1,2:ncol(cv1dd)])
+    }
   ## convert cumulative counts to new cases each day;
   for(i in nrow(cv1dd):2) {
-    cv1dd[i,2:ncol(cv1dd)] <-  cv1dd[i,2:ncol(cv1dd)] - cv1dd[i-1,2:ncol(cv1dd)]
+    cv1dd[i,2:ncol(cv1dd)] <-  
+      cv1dd[i,2:ncol(cv1dd)] - cv1dd[i-1,2:ncol(cv1dd)]
   }
 
   results <- data.frame()
@@ -120,7 +126,7 @@ calculateR0 <- function(
       R0_plot <- 
         plot(res_before_during_after_closure, "R") +
         geom_hline(aes(yintercept = 1), color = "red", lty = 2) +
-        ggtitle(countyName)
+        ggtitle(paste0(countyName," (", numCases," cases on ", last_date,")"))
       print(R0_plot)
     }
     
