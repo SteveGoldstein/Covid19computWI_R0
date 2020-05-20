@@ -3,409 +3,403 @@ A discrete distribution
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "1 The current R_0 in  Adams  is:  1.036 with 95% Credibility Interval ( 0.741 , 1.371 )"
+[1] "1 The current R_0 in  Adams  is:  3.35 with 95% Credibility Interval ( 0.172 , 10.037 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "2 The current R_0 in  Ashland  is:  1.058 with 95% Credibility Interval ( 0.652 , 1.544 )"
+[1] "2 The current R_0 in  Ashland  is:  4.732 with 95% Credibility Interval ( 0.243 , 14.177 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "3 The current R_0 in  Barron  is:  1.13 with 95% Credibility Interval ( 0.876 , 1.411 )"
+[1] "3 The current R_0 in  Barron  is:  5.033 with 95% Credibility Interval ( 0.894 , 11.937 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "4 The current R_0 in  Bayfield  is:  1.038 with 95% Credibility Interval ( 0.703 , 1.426 )"
+[1] "4 The current R_0 in  Bayfield  is:  4.998 with 95% Credibility Interval ( 0.256 , 14.972 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "5 The current R_0 in  Brown  is:  1.866 with 95% Credibility Interval ( 1.835 , 1.898 )"
+[1] "5 The current R_0 in  Brown  is:  1.263 with 95% Credibility Interval ( 1.185 , 1.344 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "6 The current R_0 in  Buffalo  is:  1.207 with 95% Credibility Interval ( 0.888 , 1.567 )"
+[1] "6 The current R_0 in  Buffalo  is:  11.735 with 95% Credibility Interval ( 3.199 , 24.627 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "8 The current R_0 in  Calumet  is:  1.984 with 95% Credibility Interval ( 1.697 , 2.29 )"
+[1] "8 The current R_0 in  Calumet  is:  1.609 with 95% Credibility Interval ( 0.839 , 2.58 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "9 The current R_0 in  Chippewa  is:  1.184 with 95% Credibility Interval ( 1.039 , 1.337 )"
+[1] "9 The current R_0 in  Chippewa  is:  3.815 with 95% Credibility Interval ( 1.79 , 6.454 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "10 The current R_0 in  Clark  is:  1.122 with 95% Credibility Interval ( 0.974 , 1.279 )"
+[1] "10 The current R_0 in  Clark  is:  0.978 with 95% Credibility Interval ( 0.267 , 2.053 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "11 The current R_0 in  Columbia  is:  1.095 with 95% Credibility Interval ( 0.973 , 1.223 )"
+[1] "11 The current R_0 in  Columbia  is:  7.245 with 95% Credibility Interval ( 3.155 , 12.695 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "12 The current R_0 in  Crawford  is:  1.666 with 95% Credibility Interval ( 1.237 , 2.147 )"
+[1] "12 The current R_0 in  Crawford  is:  10.007 with 95% Credibility Interval ( 3.943 , 18.321 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "13 The current R_0 in  Dane  is:  1.085 with 95% Credibility Interval ( 1.053 , 1.117 )"
+[1] "13 The current R_0 in  Dane  is:  0.581 with 95% Credibility Interval ( 0.394 , 0.799 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "14 The current R_0 in  Dodge  is:  1.424 with 95% Credibility Interval ( 1.283 , 1.57 )"
+[1] "14 The current R_0 in  Dodge  is:  0.905 with 95% Credibility Interval ( 0.491 , 1.422 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "15 The current R_0 in  Door  is:  1.44 with 95% Credibility Interval ( 1.217 , 1.678 )"
+[1] "15 The current R_0 in  Door  is:  2.579 with 95% Credibility Interval ( 1.211 , 4.363 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "16 The current R_0 in  Douglas  is:  1.057 with 95% Credibility Interval ( 0.851 , 1.281 )"
+[1] "16 The current R_0 in  Douglas  is:  2.47 with 95% Credibility Interval ( 0.439 , 5.859 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "17 The current R_0 in  Dunn  is:  1.241 with 95% Credibility Interval ( 1.02 , 1.479 )"
+[1] "17 The current R_0 in  Dunn  is:  8.684 with 95% Credibility Interval ( 3.422 , 15.898 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "18 The current R_0 in  Eau Claire  is:  1.449 with 95% Credibility Interval ( 1.303 , 1.601 )"
+[1] "18 The current R_0 in  Eau Claire  is:  3.601 with 95% Credibility Interval ( 2.358 , 5.058 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "19 The current R_0 in  Florence  is:  1.057 with 95% Credibility Interval ( 0.651 , 1.542 )"
+[1] "19 The current R_0 in  Florence  is:  4.967 with 95% Credibility Interval ( 0.255 , 14.879 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "20 The current R_0 in  Fond du Lac  is:  1.104 with 95% Credibility Interval ( 1.026 , 1.185 )"
+[1] "20 The current R_0 in  Fond du Lac  is:  3.038 with 95% Credibility Interval ( 1.873 , 4.433 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "22 The current R_0 in  Grant  is:  1.612 with 95% Credibility Interval ( 1.47 , 1.76 )"
+[1] "22 The current R_0 in  Grant  is:  2.067 with 95% Credibility Interval ( 1.448 , 2.776 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "23 The current R_0 in  Green  is:  1.464 with 95% Credibility Interval ( 1.242 , 1.701 )"
+[1] "23 The current R_0 in  Green  is:  4.272 with 95% Credibility Interval ( 2.318 , 6.709 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "24 The current R_0 in  Green Lake  is:  2.487 with 95% Credibility Interval ( 1.755 , 3.323 )"
+[1] "24 The current R_0 in  Green Lake  is:  3.046 with 95% Credibility Interval ( 1.041 , 5.905 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "25 The current R_0 in  Iowa  is:  1.098 with 95% Credibility Interval ( 0.862 , 1.358 )"
+[1] "25 The current R_0 in  Iowa  is:  6.755 with 95% Credibility Interval ( 2.308 , 13.095 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "26 The current R_0 in  Iron  is:  1.057 with 95% Credibility Interval ( 0.652 , 1.543 )"
+[1] "26 The current R_0 in  Iron  is:  4.822 with 95% Credibility Interval ( 0.247 , 14.444 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "27 The current R_0 in  Jackson  is:  1.024 with 95% Credibility Interval ( 0.849 , 1.212 )"
+[1] "27 The current R_0 in  Jackson  is:  2.261 with 95% Credibility Interval ( 0.116 , 6.774 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "28 The current R_0 in  Jefferson  is:  1.185 with 95% Credibility Interval ( 1.078 , 1.295 )"
+[1] "28 The current R_0 in  Jefferson  is:  0.341 with 95% Credibility Interval ( 0.093 , 0.715 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "29 The current R_0 in  Juneau  is:  1.433 with 95% Credibility Interval ( 1.229 , 1.649 )"
+[1] "29 The current R_0 in  Juneau  is:  1.336 with 95% Credibility Interval ( 0.582 , 2.342 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "30 The current R_0 in  Kenosha  is:  1.544 with 95% Credibility Interval ( 1.502 , 1.586 )"
+[1] "30 The current R_0 in  Kenosha  is:  1.853 with 95% Credibility Interval ( 1.651 , 2.064 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "31 The current R_0 in  Kewaunee  is:  1.764 with 95% Credibility Interval ( 1.518 , 2.026 )"
+[1] "31 The current R_0 in  Kewaunee  is:  3.094 with 95% Credibility Interval ( 1.83 , 4.627 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "32 The current R_0 in  La Crosse  is:  1.144 with 95% Credibility Interval ( 1.017 , 1.276 )"
+[1] "32 The current R_0 in  La Crosse  is:  2.66 with 95% Credibility Interval ( 1.159 , 4.661 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "33 The current R_0 in  Lafayette  is:  1.517 with 95% Credibility Interval ( 1.157 , 1.916 )"
+[1] "33 The current R_0 in  Lafayette  is:  4.056 with 95% Credibility Interval ( 1.598 , 7.424 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "36 The current R_0 in  Manitowoc  is:  1.458 with 95% Credibility Interval ( 1.222 , 1.711 )"
+[1] "36 The current R_0 in  Manitowoc  is:  1.892 with 95% Credibility Interval ( 0.888 , 3.201 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "37 The current R_0 in  Marathon  is:  1.121 with 95% Credibility Interval ( 0.967 , 1.283 )"
+[1] "37 The current R_0 in  Marathon  is:  4.387 with 95% Credibility Interval ( 1.729 , 8.032 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "38 The current R_0 in  Marinette  is:  1.494 with 95% Credibility Interval ( 1.222 , 1.789 )"
+[1] "38 The current R_0 in  Marinette  is:  3.049 with 95% Credibility Interval ( 1.431 , 5.159 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "39 The current R_0 in  Marquette  is:  1.041 with 95% Credibility Interval ( 0.705 , 1.431 )"
+[1] "39 The current R_0 in  Marquette  is:  4.203 with 95% Credibility Interval ( 0.216 , 12.591 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "40 The current R_0 in  Menominee  is:  1.111 with 95% Credibility Interval ( 0.553 , 1.826 )"
+[1] "40 The current R_0 in  Menominee  is:  4.997 with 95% Credibility Interval ( 0.256 , 14.969 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "41 The current R_0 in  Milwaukee  is:  1.246 with 95% Credibility Interval ( 1.232 , 1.26 )"
+[1] "41 The current R_0 in  Milwaukee  is:  1.232 with 95% Credibility Interval ( 1.154 , 1.312 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "42 The current R_0 in  Monroe  is:  1.029 with 95% Credibility Interval ( 0.865 , 1.205 )"
+[1] "42 The current R_0 in  Monroe  is:  1.025 with 95% Credibility Interval ( 0.053 , 3.07 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "43 The current R_0 in  Oconto  is:  2.33 with 95% Credibility Interval ( 1.991 , 2.693 )"
+[1] "43 The current R_0 in  Oconto  is:  3.065 with 95% Credibility Interval ( 1.923 , 4.425 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "44 The current R_0 in  Oneida  is:  1.02 with 95% Credibility Interval ( 0.778 , 1.288 )"
+[1] "44 The current R_0 in  Oneida  is:  4.675 with 95% Credibility Interval ( 0.24 , 14.004 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "45 The current R_0 in  Outagamie  is:  1.502 with 95% Credibility Interval ( 1.391 , 1.617 )"
+[1] "45 The current R_0 in  Outagamie  is:  1.92 with 95% Credibility Interval ( 1.382 , 2.53 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "46 The current R_0 in  Ozaukee  is:  1.098 with 95% Credibility Interval ( 1.027 , 1.17 )"
+[1] "46 The current R_0 in  Ozaukee  is:  1.527 with 95% Credibility Interval ( 0.828 , 2.397 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "47 The current R_0 in  Pepin  is:  4.908 with 95% Credibility Interval ( 0.252 , 14.703 )"
+[1] "48 The current R_0 in  Pierce  is:  1.104 with 95% Credibility Interval ( 0.196 , 2.618 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "48 The current R_0 in  Pierce  is:  1.2 with 95% Credibility Interval ( 0.978 , 1.439 )"
+[1] "49 The current R_0 in  Polk  is:  6.497 with 95% Credibility Interval ( 1.154 , 15.41 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "49 The current R_0 in  Polk  is:  1.072 with 95% Credibility Interval ( 0.772 , 1.413 )"
+[1] "50 The current R_0 in  Portage  is:  3.063 with 95% Credibility Interval ( 0.835 , 6.428 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "50 The current R_0 in  Portage  is:  1.46 with 95% Credibility Interval ( 1.118 , 1.84 )"
+[1] "51 The current R_0 in  Price  is:  4.822 with 95% Credibility Interval ( 0.247 , 14.445 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "51 The current R_0 in  Price  is:  1.113 with 95% Credibility Interval ( 0.554 , 1.83 )"
+[1] "52 The current R_0 in  Racine  is:  1.944 with 95% Credibility Interval ( 1.743 , 2.153 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "52 The current R_0 in  Racine  is:  1.683 with 95% Credibility Interval ( 1.634 , 1.733 )"
+[1] "53 The current R_0 in  Richland  is:  1.192 with 95% Credibility Interval ( 0.325 , 2.503 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "53 The current R_0 in  Richland  is:  1.23 with 95% Credibility Interval ( 1.024 , 1.452 )"
+[1] "54 The current R_0 in  Rock  is:  1.464 with 95% Credibility Interval ( 1.258 , 1.682 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "54 The current R_0 in  Rock  is:  1.781 with 95% Credibility Interval ( 1.713 , 1.85 )"
+[1] "55 The current R_0 in  Rusk  is:  3.162 with 95% Credibility Interval ( 0.162 , 9.474 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "55 The current R_0 in  Rusk  is:  1.038 with 95% Credibility Interval ( 0.742 , 1.374 )"
+[1] "56 The current R_0 in  St. Croix  is:  4.031 with 95% Credibility Interval ( 2.261 , 6.216 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "56 The current R_0 in  St. Croix  is:  1.424 with 95% Credibility Interval ( 1.226 , 1.635 )"
+[1] "57 The current R_0 in  Sauk  is:  2.1 with 95% Credibility Interval ( 1.482 , 2.806 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "57 The current R_0 in  Sauk  is:  1.512 with 95% Credibility Interval ( 1.395 , 1.633 )"
+[1] "58 The current R_0 in  Sawyer  is:  2.015 with 95% Credibility Interval ( 0.358 , 4.779 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "58 The current R_0 in  Sawyer  is:  1.393 with 95% Credibility Interval ( 0.969 , 1.881 )"
+[1] "59 The current R_0 in  Shawano  is:  1.845 with 95% Credibility Interval ( 0.918 , 3.032 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "59 The current R_0 in  Shawano  is:  1.835 with 95% Credibility Interval ( 1.554 , 2.135 )"
+[1] "60 The current R_0 in  Sheboygan  is:  2.941 with 95% Credibility Interval ( 1.778 , 4.341 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "60 The current R_0 in  Sheboygan  is:  1.165 with 95% Credibility Interval ( 1.067 , 1.267 )"
+[1] "62 The current R_0 in  Trempealeau  is:  3.156 with 95% Credibility Interval ( 1.078 , 6.117 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "62 The current R_0 in  Trempealeau  is:  1.948 with 95% Credibility Interval ( 1.365 , 2.616 )"
+[1] "63 The current R_0 in  Vernon  is:  2.437 with 95% Credibility Interval ( 0.433 , 5.78 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "63 The current R_0 in  Vernon  is:  2.079 with 95% Credibility Interval ( 1.166 , 3.206 )"
+[1] "64 The current R_0 in  Vilas  is:  4.986 with 95% Credibility Interval ( 0.256 , 14.937 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "64 The current R_0 in  Vilas  is:  1.028 with 95% Credibility Interval ( 0.736 , 1.361 )"
+[1] "65 The current R_0 in  Walworth  is:  1.112 with 95% Credibility Interval ( 0.887 , 1.358 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "65 The current R_0 in  Walworth  is:  1.507 with 95% Credibility Interval ( 1.44 , 1.575 )"
+[1] "66 The current R_0 in  Washburn  is:  3.913 with 95% Credibility Interval ( 0.201 , 11.722 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "66 The current R_0 in  Washburn  is:  1.129 with 95% Credibility Interval ( 0.562 , 1.855 )"
+[1] "67 The current R_0 in  Washington  is:  1.216 with 95% Credibility Interval ( 0.682 , 1.875 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "67 The current R_0 in  Washington  is:  1.108 with 95% Credibility Interval ( 1.04 , 1.177 )"
+[1] "68 The current R_0 in  Waukesha  is:  0.909 with 95% Credibility Interval ( 0.7 , 1.14 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "68 The current R_0 in  Waukesha  is:  1.18 with 95% Credibility Interval ( 1.142 , 1.22 )"
+[1] "69 The current R_0 in  Waupaca  is:  1.035 with 95% Credibility Interval ( 0.282 , 2.172 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "69 The current R_0 in  Waupaca  is:  1.45 with 95% Credibility Interval ( 1.175 , 1.748 )"
+[1] "70 The current R_0 in  Waushara  is:  14.53 with 95% Credibility Interval ( 3.96 , 30.492 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "70 The current R_0 in  Waushara  is:  1.338 with 95% Credibility Interval ( 0.876 , 1.88 )"
+[1] "71 The current R_0 in  Winnebago  is:  2.971 with 95% Credibility Interval ( 2.196 , 3.842 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "71 The current R_0 in  Winnebago  is:  1.464 with 95% Credibility Interval ( 1.357 , 1.574 )"
+[1] "72 The current R_0 in  Wood  is:  5 with 95% Credibility Interval ( 0.256 , 14.978 )"
 A discrete distribution
   name: gamma
   parameters:
     shape: 4.8659169550173
     scale: 1.54133333333333
-[1] "72 The current R_0 in  Wood  is:  1.056 with 95% Credibility Interval ( 0.651 , 1.541 )"
-A discrete distribution
-  name: gamma
-  parameters:
-    shape: 4.8659169550173
-    scale: 1.54133333333333
-[1] "73 The current R_0 in  Wisconsin  is:  1.37 with 95% Credibility Interval ( 1.361 , 1.38 )"
+[1] "73 The current R_0 in  Wisconsin  is:  1.398 with 95% Credibility Interval ( 1.351 , 1.445 )"
 Warning messages:
 1: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
   You're estimating R too early in the epidemic to get the desired
@@ -470,7 +464,9 @@ Warning messages:
 21: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
   You're estimating R too early in the epidemic to get the desired
             posterior CV.
-22: In check_si_distr(si_distr, "warning") : si_distr does not sum to 1.
+22: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
 23: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
   You're estimating R too early in the epidemic to get the desired
             posterior CV.
@@ -478,5 +474,80 @@ Warning messages:
   You're estimating R too early in the epidemic to get the desired
             posterior CV.
 25: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+26: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+27: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+28: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+29: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+30: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+31: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+32: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+33: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+34: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+35: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+36: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+37: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+38: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+39: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+40: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+41: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+42: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+43: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+44: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+45: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+46: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+47: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+48: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+49: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
+  You're estimating R too early in the epidemic to get the desired
+            posterior CV.
+50: In estimate_R_func(incid = incid, method = method, si_sample = si_sample,  ... :
   You're estimating R too early in the epidemic to get the desired
             posterior CV.

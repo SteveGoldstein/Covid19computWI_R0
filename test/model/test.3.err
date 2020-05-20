@@ -148,6 +148,4 @@ Default config will estimate R on weekly sliding windows.
     To change this change the t_start and t_end arguments. 
 Default config will estimate R on weekly sliding windows.
     To change this change the t_start and t_end arguments. 
-Default config will estimate R on weekly sliding windows.
-    To change this change the t_start and t_end arguments. 
-There were 25 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
